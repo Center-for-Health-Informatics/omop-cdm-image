@@ -1,0 +1,8 @@
+name: "omopcdm"
+services:
+  server:
+    build: "."
+    env_file: "./local.env"
+    ports:
+      - "1433:1433"
+    restart: unless-stopped
