@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/mssql/server:latest
+FROM mcr.microsoft.com/mssql/server:2022-latest
 COPY ./init.sql .
 COPY ./entrypoint.sh .
 EXPOSE 1433

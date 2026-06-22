@@ -6,3 +6,9 @@ services:
     ports:
       - "1433:1433"
     restart: unless-stopped
+    networks:
+      - ohdsi
+
+networks:
+  ohdsi:
+    external: true
