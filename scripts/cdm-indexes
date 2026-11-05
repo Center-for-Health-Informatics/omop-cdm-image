@@ -1,0 +1,11 @@
+#!/bin/bash
+# Add the CDM 5.4 primary keys and indices. Run once, after loading the
+# vocabulary and the ETL: loading is much faster without them, and the ETL
+# needs to run before keys that would reject its intermediate states.
+# Foreign keys (sql/90-foreign-keys.sql) are not applied.
+set -euo pipefail
+. /opt/omop/scripts/omop-env.sh
+
+omop_sql -d "$DB_NAME" -i "$OMOP/sql/20-primary-keys.sql"
+omop_sql -d "$DB_NAME" -i "$OMOP/sql/30-indices.sql"
+echo "cdm-indexes: done"

@@ -1,0 +1,16 @@
+#!/bin/bash
+# Load an Athena vocabulary download into the CDM schema.
+#
+#   load-vocab            (inside the container; CSVs mounted at $VOCAB_DIR, /vocab)
+#
+# Replaces the nine vocabulary tables' contents. CONCEPT_CPT4.csv is ignored:
+# reconstitute CPT4 into CONCEPT.csv first with Athena's cpt.sh if you need it.
+set -euo pipefail
+. /opt/omop/scripts/omop-env.sh
+
+for t in VOCABULARY DOMAIN CONCEPT_CLASS RELATIONSHIP CONCEPT CONCEPT_SYNONYM \
+         CONCEPT_RELATIONSHIP CONCEPT_ANCESTOR DRUG_STRENGTH; do
+  [[ -r "$VOCAB_DIR/$t.csv" ]] || { echo "load-vocab: $VOCAB_DIR/$t.csv not found" >&2; exit 1; }
+done
+
+omop_sql -d "$DB_NAME" -h -1 -i "$OMOP/sql/40-load-vocab.sql" | grep -vE '^$|rows affected\)$'

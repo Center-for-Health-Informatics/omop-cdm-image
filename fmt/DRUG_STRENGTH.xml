@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<BCPFORMAT xmlns="http://schemas.microsoft.com/sqlserver/2004/bulkload/format" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <RECORD>
+  <FIELD ID="1" xsi:type="CharTerm" TERMINATOR="\t" MAX_LENGTH="4000"/>
+  <FIELD ID="2" xsi:type="CharTerm" TERMINATOR="\t" MAX_LENGTH="4000"/>
+  <FIELD ID="3" xsi:type="CharTerm" TERMINATOR="\t" MAX_LENGTH="4000"/>
+  <FIELD ID="4" xsi:type="CharTerm" TERMINATOR="\t" MAX_LENGTH="4000"/>
+  <FIELD ID="5" xsi:type="CharTerm" TERMINATOR="\t" MAX_LENGTH="4000"/>
+  <FIELD ID="6" xsi:type="CharTerm" TERMINATOR="\t" MAX_LENGTH="4000"/>
+  <FIELD ID="7" xsi:type="CharTerm" TERMINATOR="\t" MAX_LENGTH="4000"/>
+  <FIELD ID="8" xsi:type="CharTerm" TERMINATOR="\t" MAX_LENGTH="4000"/>
+  <FIELD ID="9" xsi:type="CharTerm" TERMINATOR="\t" MAX_LENGTH="4000"/>
+  <FIELD ID="10" xsi:type="CharTerm" TERMINATOR="\t" MAX_LENGTH="4000"/>
+  <FIELD ID="11" xsi:type="CharTerm" TERMINATOR="\t" MAX_LENGTH="4000"/>
+  <FIELD ID="12" xsi:type="CharTerm" TERMINATOR="\n" MAX_LENGTH="4000" COLLATION="Latin1_General_100_CI_AS_SC_UTF8"/>
+ </RECORD>
+ <ROW>
+  <COLUMN SOURCE="1" NAME="drug_concept_id"/>
+  <COLUMN SOURCE="2" NAME="ingredient_concept_id"/>
+  <COLUMN SOURCE="3" NAME="amount_value"/>
+  <COLUMN SOURCE="4" NAME="amount_unit_concept_id"/>
+  <COLUMN SOURCE="5" NAME="numerator_value"/>
+  <COLUMN SOURCE="6" NAME="numerator_unit_concept_id"/>
+  <COLUMN SOURCE="7" NAME="denominator_value"/>
+  <COLUMN SOURCE="8" NAME="denominator_unit_concept_id"/>
+  <COLUMN SOURCE="9" NAME="box_size"/>
+  <COLUMN SOURCE="10" NAME="valid_start_date"/>
+  <COLUMN SOURCE="11" NAME="valid_end_date"/>
+  <COLUMN SOURCE="12" NAME="invalid_reason"/>
+ </ROW>
+</BCPFORMAT>

@@ -5,9 +5,16 @@ services:
     env_file: "./local.env"
     ports:
       - "1433:1433"
+    volumes:
+      - mssql:/var/opt/mssql
+      # Athena vocabulary download, for `docker compose exec server load-vocab`
+      - ${VOCAB_PATH:-./vocab}:/vocab:ro
     restart: unless-stopped
     networks:
       - ohdsi
+
+volumes:
+  mssql:
 
 networks:
   ohdsi:
